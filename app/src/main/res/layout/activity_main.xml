@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,22 +10,28 @@
         android:id="@+id/imageView"
         android:layout_width="250dp"
         android:layout_height="100dp"
-        android:padding="20dp"
-        android:src="@drawable/bruh" />
+        android:padding="5dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="30dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:padding="5dp"
-        android:gravity="center">
+        app:boxStrokeColor="@color/dark_green"
+        app:endIconTint="@color/dark_green"
+        app:errorIconTint="@color/red"
+        app:errorTextColor="@color/red"
+        app:hintTextColor="@color/dark_green"
+        app:startIconTint="@color/dark_green">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="Username"
             android:gravity="center"
-            />
+            android:hint="Username" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -32,7 +39,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="5dp">
+        android:padding="5dp"
+        app:boxStrokeColor="@color/dark_green"
+        app:endIconTint="@color/dark_green"
+        app:errorIconTint="@color/red"
+        app:errorTextColor="@color/red"
+        app:hintTextColor="@color/dark_green"
+        app:startIconTint="@color/dark_green">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -48,8 +61,10 @@
         android:id="@+id/login"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Log In"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#3EA35B"
-        android:layout_marginTop="5dp"/>
+        android:text="Log In"
+        android:textColor="@color/white"
+        app:iconTint="@color/white" />
 
 </LinearLayout>
