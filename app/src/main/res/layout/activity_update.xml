@@ -14,13 +14,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Information"
+            android:background="@color/faint_green"
             android:gravity="center"
             android:padding="15dp"
-            android:background="@color/faint_green"
+            android:text="Update Information"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -223,7 +222,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="ADD"
+                android:text="UPDATE"
                 android:textStyle="bold"
                 app:backgroundTint="@color/dark_green"
                 android:textColor="@color/white"
