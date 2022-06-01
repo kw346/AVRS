@@ -97,7 +97,7 @@
             android:textColor="@color/black"
             />
         <EditText
-            android:id="@+id/license1"
+            android:id="@+id/license"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
             android:layout_width="250dp"
@@ -115,6 +115,7 @@
             />
 
         <RadioGroup
+            android:id="@+id/schgrp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
@@ -218,7 +219,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/update"
+                android:id="@+id/add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
