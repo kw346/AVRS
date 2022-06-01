@@ -58,7 +58,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="Vehicle License 1:"
+            android:text="Contact Number:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/contact"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Membership:"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/membership"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Vehicle License:"
             android:textSize="20dp"
             android:textColor="@color/black"
             />
@@ -69,22 +103,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Vehicle License 2 (Opt):"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            />
-        <EditText
-            android:id="@+id/license2"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,30 +207,12 @@
             android:id="@+id/designation"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Contact Number:"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            />
-
-        <EditText
-            android:id="@+id/contact"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_marginBottom="30dp"
-            android:inputType="number" />
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            />
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">

@@ -19,7 +19,17 @@
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
+
     </ListView>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_gravity="bottom"
+        android:background="@color/dark_green"
+        android:fillViewport="true"/>
 
 </LinearLayout>
