@@ -38,6 +38,7 @@ public class Update extends AppCompatActivity {
         tvStaffId = findViewById(R.id.staff_id);
         etName = findViewById(R.id.name);
         etLicense1 = findViewById(R.id.license1);
+        //etLicense2 = findViewById(R.id.license2);
         etDesignation = findViewById(R.id.designation);
         etContact = findViewById(R.id.contact);
         rgSchool = findViewById(R.id.school);
@@ -74,17 +75,19 @@ public class Update extends AppCompatActivity {
 //    private class ConnectMySql extends AsyncTask<String, Void, String> {
 //        //define variables
 //        String res = "";
-//        String username = String.valueOf(textUsername.getText().toString());
-//        String password = String.valueOf(textPassword.getText().toString());
-//
+//        String name = String.valueOf(etName.getText().toString());
+//        String license1 = String.valueOf(etLicense1.getText().toString());
+//        String designation = String.valueOf(etDesignation.getText().toString());
+//        String contact = String.valueOf(etContact.getText().toString());
+//        String school = String.valueOf(rgSchool.getText().toString());
 //        //main part where it process
 //        protected String doInBackground(String... params) {
 //            try {
 //                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(staff_id, name, license1, license2, designation, contact, school);
+//                Connection con = DriverManager.getConnection(url, user, pass);
 //                System.out.println("Database connection success");
 //                //set sql string
-//                String sql = "UPDATE (table name) SET name = etName, license1 = etLicense1, license2 = etLicense2, designation = etDesignation, contact= etContact, school = rgSchool " +
+//                String sql = "UPDATE owner SET name = etName, license1 = etLicense1, license2 = etLicense2, designation = etDesignation, mobile= etContact, school = rgSchool " +
 //                        "WHERE staff_id = tvStaffId ";
 //                String result = "Database Connection Successful\n";
 //
