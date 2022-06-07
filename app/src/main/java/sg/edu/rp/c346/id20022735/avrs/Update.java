@@ -1,5 +1,6 @@
 package sg.edu.rp.c346.id20022735.avrs;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,6 +31,7 @@ public class Update extends AppCompatActivity {
     EditText etName, etLicense1, etLicense2, etDesignation, etContact;
     RadioGroup rgSchool;
     Button btnUpdate, btnDelete, btnCancel;
+    EditText id,name,contact,member,license,des,sch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +46,102 @@ public class Update extends AppCompatActivity {
         etContact = findViewById(R.id.contact);
         rgSchool = findViewById(R.id.school);
         btnUpdate = findViewById(R.id.update);
-        //btnDelete = findViewById(R.id.delete);
+        btnDelete = findViewById(R.id.delete);
         btnCancel = findViewById(R.id.cancel);
 
+        //Update Button
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id1 = id.getText().toString();
+                String name1 = name.getText().toString();
+                String no = contact.getText().toString();
+                String mem1 = member.getText().toString();
+                String lp = license.getText().toString();
+                String des1 = des.getText().toString();
+                String sch1 = sch.getText().toString();
 
-        if (rgSchool.getCheckedRadioButtonId() == R.id.soi) {
+                if (!id1.equals("")){
+                    if (!name1.equals("")){
+                        if (no.length() != 0){
+                            if (!lp.equals("")){
+                                Add.ConnectMySql addsql = new Add.ConnectMySql();
+                                addsql.execute("");
+                                Intent intent = new Intent(Add.this, AdminPage.class);
+                                startActivity(intent);
+                                String msg = "Successfully updated";
+                                Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                String msg = "Enter owner's vehicle license plate.";
+                                Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            String msg = "Enter owner's contact number.";
+                            Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{
+                        String msg = "Enter owner's name.";
+                        Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    String msg = "Enter owner's id.";
+                    Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-        }
+        //Cancel Button
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Add.this);
+                myBuilder.setMessage("Do you want to exit?");
+                myBuilder.setCancelable(false);
+                myBuilder.setNegativeButton("No", null);
+                myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Add.this, AdminPage.class);
+                        startActivity(intent);
+                    }
+                });
+
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
+            }
+        });
+
+        // Delete Button
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Add.this);
+                myBuilder.setMessage("Do you want to Delete?");
+                myBuilder.setCancelable(false);
+                myBuilder.setNegativeButton("No", null);
+                myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Add.this, AdminPage.class);
+                        startActivity(intent);
+                    }
+                });
+
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
+            }
+        });
+
+    }
+
+
+        //if (rgSchool.getCheckedRadioButtonId() == R.id.soi) {
+
+
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -70,39 +162,43 @@ public class Update extends AppCompatActivity {
 //            }
 //        });
 
+    //}
+
+    private class ConnectMySql extends AsyncTask<String,Void, String> {
+        String id1 = id.getText().toString();
+        String name1 = name.getText().toString();
+        String no = contact.getText().toString();
+        String mem1 = member.getText().toString();
+        String lp = license.getText().toString();
+        String des1 = des.getText().toString();
+        String sch1 = sch.getText().toString();
+
+        @Override
+        protected String doInBackground(String... args) {
+            String res = "";
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, pass);
+                System.out.println("Database connection success");
+                //set sql string
+                String sql = "UPDATE owner SET name = etName, license1 = etLicense1, license2 = etLicense2, designation = etDesignation, mobile= etContact, school = rgSchool " +
+                        "WHERE staff_id = tvStaffId ";
+                String result = "Database Connection Successful\n";
+
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                ResultSetMetaData rsmd = rs.getMetaData();
+                while (rs.next()) {
+                    result = rs.getString(1).toString();
+                }
+                res = result;
+            } catch (Exception e) {
+                e.printStackTrace();
+                res = e.toString();
+            }
+            return res;
+        }
     }
 
-//    private class ConnectMySql extends AsyncTask<String, Void, String> {
-//        //define variables
-//        String res = "";
-//        String name = String.valueOf(etName.getText().toString());
-//        String license1 = String.valueOf(etLicense1.getText().toString());
-//        String designation = String.valueOf(etDesignation.getText().toString());
-//        String contact = String.valueOf(etContact.getText().toString());
-//        String school = String.valueOf(rgSchool.getText().toString());
-//        //main part where it process
-//        protected String doInBackground(String... params) {
-//            try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
-//                //set sql string
-//                String sql = "UPDATE owner SET name = etName, license1 = etLicense1, license2 = etLicense2, designation = etDesignation, mobile= etContact, school = rgSchool " +
-//                        "WHERE staff_id = tvStaffId ";
-//                String result = "Database Connection Successful\n";
-//
-//                Statement st = con.createStatement();
-//                ResultSet rs = st.executeQuery(sql);
-//                ResultSetMetaData rsmd = rs.getMetaData();
-//                while (rs.next()) {
-//                    result = rs.getString(1).toString();
-//                }
-//                res = result;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                res = e.toString();
-//            }
-//            return res;
-//        }
-//    }
+
 }
