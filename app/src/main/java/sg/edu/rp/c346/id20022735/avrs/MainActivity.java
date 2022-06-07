@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //grab string from TextInputEditText
-                //kw: instead of putting line44 here, put it at line30 instead. So,dont need to do twice
+
                 String username, password;
                 username = String.valueOf(textUsername.getText().toString());
                 password = String.valueOf(textPassword.getText().toString());

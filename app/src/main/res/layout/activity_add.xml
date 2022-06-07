@@ -30,13 +30,16 @@
             android:textSize="20dp"
             android:textColor="@color/black"
             />
+
         <EditText
             android:id="@+id/staff_id"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:inputType="number"
+            android:textColorHighlight="@color/dark_green"
+            android:textCursorDrawable="@color/dark_green" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,13 +49,17 @@
             android:textSize="20dp"
             android:textColor="@color/black"
             />
+
         <EditText
             android:id="@+id/name"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:textColorHighlight="@color/dark_green"
+            android:textCursorDrawable="@color/dark_green" />
+
+        />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColorHighlight="@color/dark_green"
+            android:textCursorDrawable="@color/dark_green" />
+        />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +95,9 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:textColorHighlight="@color/faint_green"
+            android:textColorLink="@color/dark_green" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,13 +108,17 @@
             android:textSize="20dp"
             android:textColor="@color/black"
             />
+
         <EditText
             android:id="@+id/license"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:textColorHighlight="@color/dark_green"
+            android:textColorLink="@color/dark_green" />
+
+        />
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,84 +130,19 @@
             android:textColor="@color/black"
             />
 
-        <RadioGroup
-            android:id="@+id/schgrp"
-            android:layout_width="match_parent"
+
+
+        <EditText
+            android:id="@+id/school"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/soi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:padding="15dp"
-                    android:text="SOI"
-                    android:textSize="18dp" />
-
-                <RadioButton
-                    android:id="@+id/shl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="SHL"
-                    android:textSize="18dp" />
-
-                <RadioButton
-                    android:id="@+id/smc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="SMC"
-                    android:textSize="18dp" />
-
-                <RadioButton
-                    android:id="@+id/soe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="SOE"
-                    android:textSize="18dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/sta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="STA"
-                    android:textSize="18dp" />
-
-                <RadioButton
-                    android:id="@+id/soh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="SOH"
-                    android:textSize="18dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:textColorHighlight="@color/dark_green"
+            android:textColorLink="@color/dark_green" />
 
 
 
-                <RadioButton
-                    android:id="@+id/sas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="SAS"
-                    android:textSize="18dp" />
-            </LinearLayout>
-
-
-        </RadioGroup>
 
 
 
@@ -211,7 +162,9 @@
             android:layout_marginBottom="30dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            />
+            android:textColorLink="@color/dark_green" />
+
+        />
 
         <LinearLayout
             android:layout_width="match_parent"

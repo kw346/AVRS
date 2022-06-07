@@ -124,36 +124,40 @@
 
                 <RadioButton
                     android:id="@+id/soi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:padding="15dp"
                     android:text="SOI"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
 
                 <RadioButton
                     android:id="@+id/shl"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="SHL"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
 
                 <RadioButton
-                    android:id="@+id/smc"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/sas"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="SMC"
-                    android:textSize="18dp" />
+                    android:text="SAS"
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
 
                 <RadioButton
                     android:id="@+id/soe"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="SOE"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -162,30 +166,35 @@
 
                 <RadioButton
                     android:id="@+id/sta"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
+                    android:layout_marginLeft="5dp"
                     android:text="STA"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
 
                 <RadioButton
                     android:id="@+id/soh"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="SOH"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
 
 
 
                 <RadioButton
-                    android:id="@+id/sas"
+                    android:id="@+id/smc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="SAS"
-                    android:textSize="18dp" />
+                    android:text="SMC"
+                    android:textSize="18dp"
+                    android:onClick="checkButton"/>
             </LinearLayout>
+
 
 
         </RadioGroup>
