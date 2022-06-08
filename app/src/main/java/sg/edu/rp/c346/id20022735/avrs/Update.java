@@ -28,7 +28,7 @@ public class Update extends AppCompatActivity {
     private static final String pass = "123";
 
     TextView tvStaffId;
-    EditText etName, etLicense1, etLicense2, etDesignation, etContact;
+    EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
     RadioGroup rgSchool;
     Button btnUpdate, btnDelete, btnCancel;
     EditText id,name,contact,member,license,des,sch;
@@ -40,11 +40,14 @@ public class Update extends AppCompatActivity {
 
         tvStaffId = findViewById(R.id.staff_id);
         etName = findViewById(R.id.name);
+        etContact = findViewById(R.id.contact);
+        etMember = findViewById(R.id.membership);
         etLicense1 = findViewById(R.id.license1);
         //etLicense2 = findViewById(R.id.license2);
+        etSchool = findViewById(R.id.school);
+        //rgSchool = findViewById(R.id.school);
         etDesignation = findViewById(R.id.designation);
-        etContact = findViewById(R.id.contact);
-        rgSchool = findViewById(R.id.school);
+
         btnUpdate = findViewById(R.id.update);
         btnDelete = findViewById(R.id.delete);
         btnCancel = findViewById(R.id.cancel);
@@ -53,43 +56,44 @@ public class Update extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id1 = id.getText().toString();
-                String name1 = name.getText().toString();
-                String no = contact.getText().toString();
-                String mem1 = member.getText().toString();
-                String lp = license.getText().toString();
-                String des1 = des.getText().toString();
-                String sch1 = sch.getText().toString();
+                String id1 = tvStaffId.getText().toString();
+                String name1 = etName.getText().toString();
+                String no = etContact.getText().toString();
+                String mem1 = etMember.getText().toString();
+                String lp = etLicense1.getText().toString();
+                String sch1 = etSchool.getText().toString();
+                String des1 = etDesignation.getText().toString();
+
 
                 if (!id1.equals("")){
                     if (!name1.equals("")){
                         if (no.length() != 0){
                             if (!lp.equals("")){
-                                Add.ConnectMySql addsql = new Add.ConnectMySql();
-                                addsql.execute("");
-                                Intent intent = new Intent(Add.this, AdminPage.class);
+                                ConnectMySql updatesql = new ConnectMySql();
+                                updatesql.execute("");
+                                Intent intent = new Intent(Update.this, AdminPage.class);
                                 startActivity(intent);
                                 String msg = "Successfully updated";
-                                Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                             }
                             else{
                                 String msg = "Enter owner's vehicle license plate.";
-                                Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
                             String msg = "Enter owner's contact number.";
-                            Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
                         String msg = "Enter owner's name.";
-                        Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
                     String msg = "Enter owner's id.";
-                    Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -98,14 +102,14 @@ public class Update extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Add.this);
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Update.this);
                 myBuilder.setMessage("Do you want to exit?");
                 myBuilder.setCancelable(false);
                 myBuilder.setNegativeButton("No", null);
                 myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Add.this, AdminPage.class);
+                        Intent intent = new Intent(Update.this, AdminPage.class);
                         startActivity(intent);
                     }
                 });
@@ -119,14 +123,14 @@ public class Update extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Add.this);
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(Update.this);
                 myBuilder.setMessage("Do you want to Delete?");
                 myBuilder.setCancelable(false);
                 myBuilder.setNegativeButton("No", null);
                 myBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Add.this, AdminPage.class);
+                        Intent intent = new Intent(Update.this, AdminPage.class);
                         startActivity(intent);
                     }
                 });
@@ -165,13 +169,13 @@ public class Update extends AppCompatActivity {
     //}
 
     private class ConnectMySql extends AsyncTask<String,Void, String> {
-        String id1 = id.getText().toString();
-        String name1 = name.getText().toString();
-        String no = contact.getText().toString();
-        String mem1 = member.getText().toString();
-        String lp = license.getText().toString();
-        String des1 = des.getText().toString();
-        String sch1 = sch.getText().toString();
+        String id = tvStaffId.getText().toString();
+        String name = etName.getText().toString();
+        String no = etContact.getText().toString();
+        String mem = etMember.getText().toString();
+        String lp = etLicense1.getText().toString();
+        String sch = etSchool.getText().toString();
+        String des = etDesignation.getText().toString();
 
         @Override
         protected String doInBackground(String... args) {
@@ -181,7 +185,7 @@ public class Update extends AppCompatActivity {
                 Connection con = DriverManager.getConnection(url, user, pass);
                 System.out.println("Database connection success");
                 //set sql string
-                String sql = "UPDATE owner SET name = etName, license1 = etLicense1, license2 = etLicense2, designation = etDesignation, mobile= etContact, school = rgSchool " +
+                String sql = "UPDATE owner SET id = tvStaffId, name = etName, no = etContact, lp = etLicense1, sch = etSchool, des = etDesignation" +
                         "WHERE staff_id = tvStaffId ";
                 String result = "Database Connection Successful\n";
 
