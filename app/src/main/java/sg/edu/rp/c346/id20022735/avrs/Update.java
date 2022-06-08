@@ -185,7 +185,7 @@ public class Update extends AppCompatActivity {
                 Connection con = DriverManager.getConnection(url, user, pass);
                 System.out.println("Database connection success");
                 //set sql string
-                String sql = "UPDATE owner SET id = tvStaffId, name = etName, no = etContact, lp = etLicense1, sch = etSchool, des = etDesignation" +
+                String sql = "UPDATE owner SET id = id, name = name, contact = no, license plate = lp, school = sch, designation = des" +
                         "WHERE staff_id = tvStaffId ";
                 String result = "Database Connection Successful\n";
 
