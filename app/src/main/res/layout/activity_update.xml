@@ -51,7 +51,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:hint="Name"/>
 
         <!--Contact-->
         <TextView
@@ -68,7 +69,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:hint="Contact"/>
 
         <!--Membership-->
         <TextView
@@ -86,7 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
-            android:inputType="number" />
+            android:hint="membership"/>
+<!--            android:inputType="number"-->
+
 
         <!--Vehicle License Plate-->
         <TextView
@@ -103,7 +107,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            android:hint="License Plate Number"/>
 
         <!--School-->
         <TextView
@@ -123,7 +128,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
             android:textColorHighlight="@color/dark_green"
-            android:textColorLink="@color/dark_green" />
+            android:textColorLink="@color/dark_green"
+            android:hint="School"/>
 
         <!--Designation-->
         <TextView
@@ -141,7 +147,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            android:hint="Designation"/>
 
         <!--Buttons-->
         <LinearLayout
