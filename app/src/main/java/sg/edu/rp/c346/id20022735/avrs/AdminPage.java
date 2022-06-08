@@ -25,6 +25,7 @@ public class AdminPage extends AppCompatActivity {
     ListView lv;
     ArrayList<License> licenseList;
     CustomAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class AdminPage extends AppCompatActivity {
 //        String password = String.valueOf(textPassword.getText().toString());
 
 
-        //main part where it process
+    //main part where it process
 //        @Override
 //        protected String doInBackground(String... params) {
 //            try {
@@ -87,5 +88,5 @@ public class AdminPage extends AppCompatActivity {
 //            else {
 //                Toast.makeText(getApplicationContext(),"Invalid account",Toast.LENGTH_SHORT).show();
 //            }
-        }
+}
 

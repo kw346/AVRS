@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,22 +12,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Information"
+            android:background="@color/faint_green"
             android:gravity="center"
             android:padding="15dp"
-            android:background="@color/faint_green"
+            android:text="Add Information"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Staff ID:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/staff_id"
@@ -40,15 +37,15 @@
             android:inputType="number"
             android:textColorHighlight="@color/dark_green"
             android:textCursorDrawable="@color/dark_green" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Owner Name:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/name"
@@ -59,16 +56,14 @@
             android:textColorHighlight="@color/dark_green"
             android:textCursorDrawable="@color/dark_green" />
 
-        />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Contact Number:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/contact"
@@ -79,16 +74,15 @@
             android:inputType="number"
             android:textColorHighlight="@color/dark_green"
             android:textCursorDrawable="@color/dark_green" />
-        />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Membership:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/membership"
@@ -105,9 +99,8 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Vehicle License:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/license"
@@ -118,19 +111,14 @@
             android:textColorHighlight="@color/dark_green"
             android:textColorLink="@color/dark_green" />
 
-        />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="School:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
-
-
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/school"
@@ -141,26 +129,23 @@
             android:textColorHighlight="@color/dark_green"
             android:textColorLink="@color/dark_green" />
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Designation:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/designation"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="30dp"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
             android:textColorLink="@color/dark_green" />
-
-        />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,10 +160,10 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="ADD"
-                android:textStyle="bold"
-                app:backgroundTint="@color/dark_green"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                android:textStyle="bold"
+                app:backgroundTint="@color/dark_green" />
 
             <Button
                 android:id="@+id/cancel"
@@ -188,9 +173,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="CANCEL"
-                app:backgroundTint="@color/red"
-                android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:backgroundTint="@color/red" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

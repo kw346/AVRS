@@ -31,7 +31,7 @@ public class Update extends AppCompatActivity {
     EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
     RadioGroup rgSchool;
     Button btnUpdate, btnDelete, btnCancel;
-    EditText id,name,contact,member,license,des,sch;
+    EditText id, name, contact, member, license, des, sch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class Update extends AppCompatActivity {
         btnDelete = findViewById(R.id.delete);
         btnCancel = findViewById(R.id.cancel);
 
-        //Update Button
+        // Update Button
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,40 +65,36 @@ public class Update extends AppCompatActivity {
                 String des1 = etDesignation.getText().toString();
 
 
-                if (!id1.equals("")){
-                    if (!name1.equals("")){
-                        if (no.length() != 0){
-                            if (!lp.equals("")){
+                if (!id1.equals("")) {
+                    if (!name1.equals("")) {
+                        if (no.length() != 0) {
+                            if (!lp.equals("")) {
                                 ConnectMySql updatesql = new ConnectMySql();
                                 updatesql.execute("");
                                 Intent intent = new Intent(Update.this, AdminPage.class);
                                 startActivity(intent);
                                 String msg = "Successfully updated";
                                 Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
-                            }
-                            else{
+                            } else {
                                 String msg = "Enter owner's vehicle license plate.";
                                 Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else{
+                        } else {
                             String msg = "Enter owner's contact number.";
                             Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    else{
+                    } else {
                         String msg = "Enter owner's name.";
                         Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
+                } else {
                     String msg = "Enter owner's id.";
                     Toast.makeText(Update.this, msg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        //Cancel Button
+        // Cancel Button
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,8 +138,7 @@ public class Update extends AppCompatActivity {
 
     }
 
-
-        //if (rgSchool.getCheckedRadioButtonId() == R.id.soi) {
+    //if (rgSchool.getCheckedRadioButtonId() == R.id.soi) {
 
 
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +163,7 @@ public class Update extends AppCompatActivity {
 
     //}
 
-    private class ConnectMySql extends AsyncTask<String,Void, String> {
+    private class ConnectMySql extends AsyncTask<String, Void, String> {
         String id = tvStaffId.getText().toString();
         String name = etName.getText().toString();
         String no = etContact.getText().toString();
@@ -204,6 +199,4 @@ public class Update extends AppCompatActivity {
             return res;
         }
     }
-
-
 }

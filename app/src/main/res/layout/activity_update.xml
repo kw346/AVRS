@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,47 +18,50 @@
             android:text="Update Information"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold" />
+
+        <!--Staff ID-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Staff ID:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/staff_id"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp" />
+
+        <!--Owner Name-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Owner Name:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/name"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp" />
+
+        <!--Contact-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Contact Number:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/contact"
@@ -68,15 +69,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp" />
+
+        <!--Membership-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Membership:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/membership"
@@ -86,6 +88,7 @@
             android:layout_marginTop="3dp"
             android:inputType="number" />
 
+        <!--Vehicle License Plate-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,110 +97,23 @@
             android:text="Vehicle License:"
             android:textColor="@color/black"
             android:textSize="20dp" />
+
         <EditText
             android:id="@+id/license1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp" />
+
+        <!--School-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="School:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
-
-<!--        <RadioGroup-->
-<!--            android:id="@+id/school"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            >-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/soi"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="5dp"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SOI"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/shl"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SHL"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/sas"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SAS"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/soe"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SOE"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-<!--            </LinearLayout>-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/sta"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:layout_marginLeft="5dp"-->
-<!--                    android:text="STA"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/soh"-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SOH"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-
-
-
-<!--                <RadioButton-->
-<!--                    android:id="@+id/smc"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="15dp"-->
-<!--                    android:text="SMC"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:onClick="checkButton"/>-->
-<!--            </LinearLayout>-->
-
-
-
-<!--        </RadioGroup>-->
+            android:textSize="20dp" />
 
 
         <EditText
@@ -209,29 +125,26 @@
             android:textColorHighlight="@color/dark_green"
             android:textColorLink="@color/dark_green" />
 
-
-
+        <!--Designation-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Designation:"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            />
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/designation"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="30dp" />
 
-
+        <!--Buttons-->
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -244,10 +157,10 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="UPDATE"
-                android:textStyle="bold"
-                app:backgroundTint="@color/dark_green"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                android:textStyle="bold"
+                app:backgroundTint="@color/dark_green" />
 
             <Button
                 android:id="@+id/delete"
@@ -257,10 +170,11 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="DELETE"
-                app:backgroundTint="@color/red"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                app:backgroundTint="@color/red" />
         </LinearLayout>
+
         <Button
             android:id="@+id/cancel"
             android:layout_width="match_parent"
@@ -269,8 +183,8 @@
             android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="CANCEL"
-            app:backgroundTint="@color/peach"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            app:backgroundTint="@color/peach" />
     </LinearLayout>
 </ScrollView>

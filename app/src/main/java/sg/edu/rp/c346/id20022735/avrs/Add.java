@@ -24,8 +24,8 @@ public class Add extends AppCompatActivity {
     private static final String url = "jdbc:mysql://116.89.52.49:3306/fyp";
     private static final String user = "root";
     private static final String pass = "123";
-    Button btnadd,btncel;
-    EditText id,name,contact,member,license,des,sch;
+    Button btnadd, btncel;
+    EditText id, name, contact, member, license, des, sch;
     Spinner spin;
 //    RadioGroup schrg;
 //    RadioButton schrb;
@@ -36,13 +36,13 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         btnadd = findViewById(R.id.add);
-        btncel=findViewById(R.id.cancel);
-        id =findViewById(R.id.staff_id);
-        name=findViewById(R.id.name);
-        contact=findViewById(R.id.contact);
-        member =findViewById(R.id.membership);
-        license=findViewById(R.id.license);
-        des=findViewById(R.id.designation);
+        btncel = findViewById(R.id.cancel);
+        id = findViewById(R.id.staff_id);
+        name = findViewById(R.id.name);
+        contact = findViewById(R.id.contact);
+        member = findViewById(R.id.membership);
+        license = findViewById(R.id.license);
+        des = findViewById(R.id.designation);
         sch = findViewById(R.id.school);
 //        spin=findViewById(R.id.spinner);
 //        final String[] sch = {""};
@@ -88,33 +88,29 @@ public class Add extends AppCompatActivity {
                 String des1 = des.getText().toString();
                 String sch1 = sch.getText().toString();
 
-                if (!id1.equals("")){
-                    if (!name1.equals("")){
-                        if (no.length() != 0){
-                            if (!lp.equals("")){
+                if (!id1.equals("")) {
+                    if (!name1.equals("")) {
+                        if (no.length() != 0) {
+                            if (!lp.equals("")) {
                                 ConnectMySql addsql = new ConnectMySql();
                                 addsql.execute("");
                                 Intent intent = new Intent(Add.this, AdminPage.class);
                                 startActivity(intent);
                                 String msg = "Successfully added";
                                 Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
-                            }
-                            else{
+                            } else {
                                 String msg = "Enter owner's vehicle license plate.";
                                 Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else{
+                        } else {
                             String msg = "Enter owner's contact number.";
                             Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    else{
+                    } else {
                         String msg = "Enter owner's name.";
                         Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                }
-                else{
+                } else {
                     String msg = "Enter owner's id.";
                     Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
                 }
@@ -143,7 +139,7 @@ public class Add extends AppCompatActivity {
     }
 
 
-    private class ConnectMySql extends AsyncTask<String,Void, String> {
+    private class ConnectMySql extends AsyncTask<String, Void, String> {
         String id1 = id.getText().toString();
         String name1 = name.getText().toString();
         String no = contact.getText().toString();
@@ -160,7 +156,7 @@ public class Add extends AppCompatActivity {
                 Connection con = DriverManager.getConnection(url, user, pass);
                 System.out.println("Database connection success");
                 //set sql string
-                String sql = "INSERT INTO owner"+ " VALUES('"+id1+"','"+name1+"','"+no+"','"+mem1+"','"+lp+"','"+sch1+"','"+des1+"');";
+                String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "');";
                 String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
                 st.executeUpdate(sql);

@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //run if one of the fields are empty
                 else {
-                    Toast.makeText(getApplicationContext(),"All fields required",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "All fields required", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
 
         }
+
         //main part where it process
         @Override
         protected String doInBackground(String... params) {
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 Connection con = DriverManager.getConnection(url, user, pass);
                 System.out.println("Database connection success");
                 //set sql string
-                String sql = "SELECT type FROM user WHERE username='"+username+"' AND password='"+password+"'";
+                String sql = "SELECT type FROM user WHERE username='" + username + "' AND password='" + password + "'";
                 String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery(sql);
@@ -101,15 +102,14 @@ public class MainActivity extends AppCompatActivity {
             //check if status is login or not (if not means invalid account or wrong password)
             if (result.contains("admin")) {
                 Intent intent = new Intent(MainActivity.this, AdminPage.class);
-                   startActivity(intent);
-            }
-            else if (result.contains("guard")) {
+                startActivity(intent);
+            } else if (result.contains("guard")) {
                 Intent intent = new Intent(MainActivity.this, HomePage.class);
                 startActivity(intent);
             }
             //if account invalid
             else {
-                Toast.makeText(getApplicationContext(),"Invalid account",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Invalid account", Toast.LENGTH_SHORT).show();
             }
         }
     }
