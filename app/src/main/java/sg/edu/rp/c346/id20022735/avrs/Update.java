@@ -25,7 +25,7 @@ import java.sql.Statement;
 import java.util.List;
 
 public class Update extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://116.89.52.49:3306/fyp";
+    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
     private static final String user = "root";
     private static final String pass = "123";
 
