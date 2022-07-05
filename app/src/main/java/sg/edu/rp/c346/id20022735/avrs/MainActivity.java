@@ -19,7 +19,7 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
     //define variables
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
+    private static final String url = "jdbc:mysql://192.168.1.146:3306/fyp";
     private static final String user = "root";
     private static final String pass = "123";
     Button btnLogin;
