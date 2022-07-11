@@ -3,6 +3,8 @@
     package="sg.edu.rp.c346.id20022735.avrs">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -11,8 +13,13 @@
         android:theme="@style/Theme.AVRS">
         <activity android:name=".AdminPage"></activity>
         <activity android:name=".Add" />
-        <activity android:name=".HomePage" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomePage">
+            <meta-data
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="ocr" />
+        </activity>
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
