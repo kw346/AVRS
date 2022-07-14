@@ -3,10 +3,13 @@ package sg.edu.rp.c346.id20022735.avrs;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -21,12 +24,13 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Add extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+//    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
+//    private static final String user = "root";
+//    private static final String pass = "123";
     Button btnadd, btncel;
     EditText id, name, contact, member, license, des, sch;
-    Spinner spin;
+//    Spinner spin;
+    Connection con;
 //    RadioGroup schrg;
 //    RadioButton schrb;
 
@@ -99,20 +103,16 @@ public class Add extends AppCompatActivity {
                                 String msg = "Successfully added";
                                 Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
                             } else {
-                                String msg = "Enter owner's vehicle license plate.";
-                                Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Add.this, "Enter owner's vehicle license plate.", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            String msg = "Enter owner's contact number.";
-                            Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Add.this, "Enter owner's contact number.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        String msg = "Enter owner's name.";
-                        Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Add.this, "Enter owner's name.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    String msg = "Enter owner's id.";
-                    Toast.makeText(Add.this, msg, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Add.this, "Enter owner's id.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -139,7 +139,7 @@ public class Add extends AppCompatActivity {
     }
 
 
-    private class ConnectMySql extends AsyncTask<String, Void, String> {
+    public class ConnectMySql extends AsyncTask<String, Void, String> {
         String id1 = id.getText().toString();
         String name1 = name.getText().toString();
         String no = contact.getText().toString();
@@ -152,12 +152,10 @@ public class Add extends AppCompatActivity {
         protected String doInBackground(String... args) {
             String res = "";
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
-                System.out.println("Database connection success");
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                con = connectionHelper.conclass();
                 //set sql string
                 String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "');";
-                String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
                 st.executeUpdate(sql);
                 res = "Add Successful";
@@ -167,7 +165,21 @@ public class Add extends AppCompatActivity {
             }
             return res;
         }
-
+        @SuppressLint("Newapi")
+        public Connection ConnectionHelper(String url,String user,String pass){
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            Connection con = null;
+            String conurl = null;
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection(url, user, pass);
+            }
+            catch (Exception e){
+                Log.e("SQL Connection Error: ",e.getMessage());
+            }
+            return con;
+        }
     }
 //    private String getSch() {
 //        String sch  = "";

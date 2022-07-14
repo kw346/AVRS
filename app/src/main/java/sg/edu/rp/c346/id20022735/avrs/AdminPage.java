@@ -6,31 +6,32 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AdminPage extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+
     Button btn1;
-    ListView lv;
-    ArrayList<License> licenseList;
-    CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
-        lv = findViewById(R.id.lv);
+
 
         btn1 = findViewById(R.id.add);
 
@@ -41,52 +42,21 @@ public class AdminPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
-//    private class ConnectMySql extends AsyncTask<String, Void, String> {
-//        //define variables
-//        String res = "";
-//        String username = String.valueOf(textUsername.getText().toString());
-//        String password = String.valueOf(textPassword.getText().toString());
+    SimpleAdapter adap;
+    public void GetList(View v){
+        ListView lvlic = (ListView) findViewById(R.id.lv);
 
+        List<Map<String,String>> datalist = null;
+        ListOwners alldata= new ListOwners();
+        datalist = alldata.getList();
 
-    //main part where it process
-//        @Override
-//        protected String doInBackground(String... params) {
-//            try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
-//                //set sql string
-//                String sql = "SELECT type FROM user WHERE username='"+username+"' AND password='"+password+"'";
-//                String result = "Database Connection Successful\n";
-//                Statement st = con.createStatement();
-//                ResultSet rs = st.executeQuery(sql);
-//                ResultSetMetaData rsmd = rs.getMetaData();
-//                while (rs.next()) {
-//                    result = rs.getString(1).toString();
-//                }
-//                res = result;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                res = e.toString();
-//            }
-//            return res;
-//        }
+        String[] cols = {"name","license","school","designation","contact"};
+        int[] show= {R.id.name,R.id.license,R.id.school,R.id.designation,R.id.contact};
+        adap = new SimpleAdapter(AdminPage.this,datalist,R.layout.activity_admin_list,cols,show);
+        lvlic.setAdapter(adap);
+    }
 
-//        @Override
-//        protected void onPostExecute(String result) {
-//            //check if status is login or not (if not means invalid account or wrong password)
-//            if (result.contains("admin")) {
-//                Intent intent = new Intent(MainActivity.this, AdminPage.class);
-//                startActivity(intent);
-//            }
-//            else if (result.contains("guard")) {
-//                Intent intent = new Intent(MainActivity.this, HomePage.class);
-//                startActivity(intent);
-//            }
-//            //if account invalid
-//            else {
-//                Toast.makeText(getApplicationContext(),"Invalid account",Toast.LENGTH_SHORT).show();
-//            }
 }
 
