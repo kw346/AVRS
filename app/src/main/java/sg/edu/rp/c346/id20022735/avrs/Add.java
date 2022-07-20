@@ -24,9 +24,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Add extends AppCompatActivity {
-//    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-//    private static final String user = "root";
-//    private static final String pass = "123";
+
     Button btnadd, btncel;
     EditText id, name, contact, member, license, des, sch;
 //    Spinner spin;
