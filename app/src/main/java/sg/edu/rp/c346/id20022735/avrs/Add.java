@@ -27,8 +27,8 @@ public class Add extends AppCompatActivity {
     Button btnadd, btncel;
     EditText id, name, contact, member, license, des, sch;
     Spinner spin;
-//    RadioGroup schrg;
-//    RadioButton schrb;
+    RadioGroup rgSch;
+//    RadioButton rbSch;
 
 
     @Override
@@ -44,6 +44,7 @@ public class Add extends AppCompatActivity {
         license = findViewById(R.id.license);
         des = findViewById(R.id.designation);
         sch = findViewById(R.id.school);
+        rgSch = findViewById(R.id.rgSchool);
 //        spin=findViewById(R.id.spinner);
 //        final String[] sch = {""};
 //        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -88,6 +89,14 @@ public class Add extends AppCompatActivity {
                 String des1 = des.getText().toString();
                 String sch1 = sch.getText().toString();
 
+                int checkedId = rgSch.getCheckedRadioButton();
+                if(checkedId == -1) {
+                    String message = "Please select a school";
+                    Toast.makeText(Add.this, message, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    findRadioButton(checkedId);
+                }
                 if (!id1.equals("")) {
                     if (!name1.equals("")) {
                         if (no.length() != 0) {
@@ -169,9 +178,9 @@ public class Add extends AppCompatActivity {
         }
 
     }
-//    private String getSch() {
+//    private void findRadioButton(int checkedId) {
 //        String sch  = "";
-//        switch (schrg.getCheckedRadioButtonId()) {
+//        switch (checkedId) {
 //            case R.id.soi:
 //                sch = "SOI";
 //                break;

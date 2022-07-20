@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.List;
 
 public class Update extends AppCompatActivity {
     private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
@@ -31,13 +33,15 @@ public class Update extends AppCompatActivity {
     EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
     RadioGroup rgSchool;
     Button btnUpdate, btnDelete, btnCancel;
-    EditText id, name, contact, member, license, des, sch;
+//    EditText id, name, contact, member, license, des, sch;
+    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        lv = findViewById(R.id.listView);
         tvStaffId = findViewById(R.id.staff_id);
         etName = findViewById(R.id.name);
         etContact = findViewById(R.id.contact);
