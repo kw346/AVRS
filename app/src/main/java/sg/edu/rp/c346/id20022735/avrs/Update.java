@@ -16,8 +16,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.mysql.jdbc.Connection;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -25,9 +25,9 @@ import java.sql.Statement;
 import java.util.List;
 
 public class Update extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
+//    private static final String user = "root";
+//    private static final String pass = "123";
 
     TextView tvStaffId;
     EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
@@ -167,7 +167,7 @@ public class Update extends AppCompatActivity {
 
     //}
 
-    private class ConnectMySql extends AsyncTask<String, Void, String> {
+    public class ConnectMySql extends AsyncTask<String, Void, String> {
         String id = tvStaffId.getText().toString();
         String name = etName.getText().toString();
         String no = etContact.getText().toString();
@@ -176,14 +176,16 @@ public class Update extends AppCompatActivity {
         String sch = etSchool.getText().toString();
         String des = etDesignation.getText().toString();
 
-        //
+        // for connecting to database
         @Override
         protected String doInBackground(String... args) {
             String res = "";
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
-                System.out.println("Database connection success");
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection(url, user, pass);
+//                System.out.println("Database connection success");
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                Connection con = connectionHelper.conclass();
                 //set sql string
                 String sql = "UPDATE owner SET id = id, name = name, contact = no, license plate = lp, school = sch, designation = des" +
                         "WHERE staff_id = tvStaffId ";

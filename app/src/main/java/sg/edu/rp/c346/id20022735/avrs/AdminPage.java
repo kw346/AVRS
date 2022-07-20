@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -16,11 +17,13 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class AdminPage extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
+//    private static final String user = "root";
+//    private static final String pass = "123";
     Button btn1;
     ListView lv;
     ArrayList<License> licenseList;
@@ -42,6 +45,21 @@ public class AdminPage extends AppCompatActivity {
             }
         });
     }
+
+        SimpleAdapter adap;
+        public void GetList (View v) {
+            ListView lvlic = (ListView) findViewById(R.id.lv);
+
+            List<Map<String,String>> datalist = null;
+            ListOwner alldata= new ListOwner();
+            datalist = alldata.getList();
+
+            String[] cols = {"name","license","school","designation","contact"};
+            int[] show= {R.id.name,R.id.license,R.id.school,R.id.designation,R.id.contact};
+            adap = new SimpleAdapter(AdminPage.this,datalist,R.layout.admin_list,cols,show);
+            lvlic.setAdapter(adap);
+        }
+}
 //    private class ConnectMySql extends AsyncTask<String, Void, String> {
 //        //define variables
 //        String res = "";
@@ -88,5 +106,5 @@ public class AdminPage extends AppCompatActivity {
 //            else {
 //                Toast.makeText(getApplicationContext(),"Invalid account",Toast.LENGTH_SHORT).show();
 //            }
-}
+
 

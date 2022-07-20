@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.mysql.jdbc.Connection;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -19,9 +19,9 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
     //define variables
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
+//    private static final String user = "root";
+//    private static final String pass = "123";
     Button btnLogin;
     TextInputEditText textUsername;
     TextInputEditText textPassword;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private class ConnectMySql extends AsyncTask<String, Void, String> {
+    public class ConnectMySql extends AsyncTask<String, Void, String> {
         //define variables
         String res = "";
         String username = String.valueOf(textUsername.getText().toString());
@@ -77,9 +77,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
-                System.out.println("Database connection success");
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection(url, user, pass);
+//                System.out.println("Database connection success");
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                Connection con = connectionHelper.conclass();
                 //set sql string
                 String sql = "SELECT type FROM user WHERE username='" + username + "' AND password='" + password + "'";
                 String result = "Database Connection Successful\n";

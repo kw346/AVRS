@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -21,14 +20,15 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Add extends AppCompatActivity {
-    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
+//    private static final String user = "root";
+//    private static final String pass = "123";
     Button btnadd, btncel;
     EditText id, name, contact, member, license, des, sch;
     Spinner spin;
     RadioGroup rgSch;
-//    RadioButton rbSch;
+    RadioButton rbSch;
+    Connection con;
 
 
     @Override
@@ -44,7 +44,9 @@ public class Add extends AppCompatActivity {
         license = findViewById(R.id.license);
         des = findViewById(R.id.designation);
         sch = findViewById(R.id.school);
-        rgSch = findViewById(R.id.rgSchool);
+        //rgSch = findViewById(R.id.rgSchool);
+
+
 //        spin=findViewById(R.id.spinner);
 //        final String[] sch = {""};
 //        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,14 +91,18 @@ public class Add extends AppCompatActivity {
                 String des1 = des.getText().toString();
                 String sch1 = sch.getText().toString();
 
-                int checkedId = rgSch.getCheckedRadioButton();
-                if(checkedId == -1) {
-                    String message = "Please select a school";
-                    Toast.makeText(Add.this, message, Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    findRadioButton(checkedId);
-                }
+//                int checkedId = rgSch.getCheckedRadioButton();
+//                String changeString = "";
+//                if(checkedId == -1) {
+//                    String message = "Please select a school";
+//                    Toast.makeText(Add.this, message, Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    findRadioButton(checkedId);
+//                    if (checkedId == a){
+//                        changeString = "HOD";
+//                    }
+//                }
                 if (!id1.equals("")) {
                     if (!name1.equals("")) {
                         if (no.length() != 0) {
@@ -147,38 +153,7 @@ public class Add extends AppCompatActivity {
 
     }
 
-
-    private class ConnectMySql extends AsyncTask<String, Void, String> {
-        String id1 = id.getText().toString();
-        String name1 = name.getText().toString();
-        String no = contact.getText().toString();
-        String mem1 = member.getText().toString();
-        String lp = license.getText().toString();
-        String des1 = des.getText().toString();
-        String sch1 = sch.getText().toString();
-
-        @Override
-        protected String doInBackground(String... args) {
-            String res = "";
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
-                System.out.println("Database connection success");
-                //set sql string
-                String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "');";
-                String result = "Database Connection Successful\n";
-                Statement st = con.createStatement();
-                st.executeUpdate(sql);
-                res = "Add Successful";
-            } catch (Exception e) {
-                e.printStackTrace();
-                res = "Add Failed";
-            }
-            return res;
-        }
-
-    }
-//    private void findRadioButton(int checkedId) {
+//    private String findRadioButton(int checkedId) {
 //        String sch  = "";
 //        switch (checkedId) {
 //            case R.id.soi:
@@ -205,4 +180,38 @@ public class Add extends AppCompatActivity {
 //        }
 //        return sch;
 //    }
+
+    private class ConnectMySql extends AsyncTask<String, Void, String> {
+        String id1 = id.getText().toString();
+        String name1 = name.getText().toString();
+        String no = contact.getText().toString();
+        String mem1 = member.getText().toString();
+        String lp = license.getText().toString();
+        String des1 = des.getText().toString();
+        String sch1 = sch.getText().toString();
+
+        @Override
+        protected String doInBackground(String... args) {
+            String res = "";
+            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection(url, user, pass);
+//                System.out.println("Database connection success");
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                con = connectionHelper.conclass();
+                //set sql string
+                String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "');";
+                String result = "Database Connection Successful\n";
+                Statement st = con.createStatement();
+                st.executeUpdate(sql);
+                res = "Add Successful";
+            } catch (Exception e) {
+                e.printStackTrace();
+                res = "Add Failed";
+            }
+            return res;
+        }
+
+    }
+    
 }
