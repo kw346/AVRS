@@ -15,7 +15,7 @@ public class ConnectionHelper {
     @SuppressLint("NewApi")
     public Connection conclass() {
 
-        url = "jdbc:mysql://192.168.110.1:3306/fyp";
+        url = "jdbc:mysql://192.168.1.21:3306/fyp";
         user = "root";
         pass = "123";
 

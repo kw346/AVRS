@@ -42,7 +42,8 @@
                 android:backgroundTint="@color/bright_green"
                 android:padding="10dp"
                 android:text="Add"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/load"
@@ -51,6 +52,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:backgroundTint="@color/dark_green"
+                android:onClick="GetList"
                 android:padding="10dp"
                 android:text="All data"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"

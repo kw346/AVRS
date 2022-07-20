@@ -172,9 +172,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:text="CANCEL"
+                android:text="Cancel"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:backgroundTint="@color/red" />
+                app:backgroundTint="@color/peach"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
