@@ -1,12 +1,9 @@
 package sg.edu.rp.c346.id20022735.avrs;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,13 +23,15 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 public class Update extends AppCompatActivity {
+    private static final String url = "jdbc:mysql://ChangeThisToYourIPWhenTesting:3306/fyp";
+    private static final String user = "root";
+    private static final String pass = "123";
 
     TextView tvStaffId;
     EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
     RadioGroup rgSchool;
     Button btnUpdate, btnDelete, btnCancel;
     EditText id, name, contact, member, license, des, sch;
-    Connection con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,8 +177,8 @@ public class Update extends AppCompatActivity {
         protected String doInBackground(String... args) {
             String res = "";
             try {
-                ConnectionHelper connectionHelper = new ConnectionHelper();
-                con = connectionHelper.conclass();
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, pass);
                 System.out.println("Database connection success");
                 //set sql string
                 String sql = "UPDATE owner SET id = id, name = name, contact = no, license plate = lp, school = sch, designation = des" +
@@ -198,21 +197,6 @@ public class Update extends AppCompatActivity {
                 res = e.toString();
             }
             return res;
-        }
-        @SuppressLint("Newapi")
-        public Connection ConnectionHelper(String url,String user,String pass){
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            Connection con = null;
-            String conurl = null;
-            try{
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection(url, user, pass);
-            }
-            catch (Exception e){
-                Log.e("SQL Connection Error: ",e.getMessage());
-            }
-            return con;
         }
     }
 }

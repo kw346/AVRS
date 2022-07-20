@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "910393457628",
+    "project_id": "avrs-ba93a",
+    "storage_bucket": "avrs-ba93a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910393457628:android:d4f33eaba3a3eff812ad19",
+        "android_client_info": {
+          "package_name": "sg.edu.rp.c346.id20022735.avrs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910393457628-t3mn9h642f0fv04altcno9c5ijc4t644.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIFIZee4JdetWR53Q5Q6nzB5v7VYHDi2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910393457628-t3mn9h642f0fv04altcno9c5ijc4t644.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
