@@ -16,7 +16,8 @@
         <activity android:name=".HomePage">
             <meta-data
                 android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                android:value="ocr" />
+                android:value="ocr"
+                android:screenOrientation="portrait"/>
         </activity>
         <activity android:name=".MainActivity"
             android:exported="true">

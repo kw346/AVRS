@@ -34,9 +34,7 @@ import java.util.Locale;
 
 public class HomePage extends AppCompatActivity {
     //db connection info
-    private static final String url = "jdbc:mysql://192.168.1.146:3306/fyp";
-    private static final String user = "root";
-    private static final String pass = "123";
+    Connection con;
     //declare imageview button textview
     private ImageView imageView;
     private Button scan, check, read;
@@ -78,9 +76,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
     }
-
-
-
     //take photo with camera app
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -149,9 +144,8 @@ public class HomePage extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass);
-                System.out.println("Database connection success");
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                con = connectionHelper.conclass();
                 //set sql string
                 String sql = "SELECT name, designation, mobile FROM owner WHERE license_no='" + licensePlate + "'";
                 String result = "BLANK";

@@ -20,16 +20,9 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Add extends AppCompatActivity {
-//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
-//    private static final String user = "root";
-//    private static final String pass = "123";
     Button btnadd, btncel;
     EditText id, name, contact, member, license, des, sch;
-    Spinner spin;
-    RadioGroup rgSch;
-    RadioButton rbSch;
     Connection con;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,41 +37,6 @@ public class Add extends AppCompatActivity {
         license = findViewById(R.id.license);
         des = findViewById(R.id.designation);
         sch = findViewById(R.id.school);
-        //rgSch = findViewById(R.id.rgSchool);
-
-
-//        spin=findViewById(R.id.spinner);
-//        final String[] sch = {""};
-//        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                switch (position){
-//                    case 0 :
-//                        sch[0] = "SAS";
-//                        break;
-//                    case 1 :
-//                        sch[1] = "SHL";
-//                        break;
-//                    case 2 :
-//                        sch[2] = "SMC";
-//                        break;
-//                    case 3 :
-//                        sch[3] = "SOE";
-//                        break;
-//                    case 4 :
-//                        sch[4] = "SOH";
-//                        break;
-//                    case 5 :
-//                        sch[5] = "SOI";
-//                        break;
-//                    case 6 :
-//                        sch[6] = "STA";
-//                        break;
-//
-//                }
-//            }
-//
-//        });
 
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,18 +49,6 @@ public class Add extends AppCompatActivity {
                 String des1 = des.getText().toString();
                 String sch1 = sch.getText().toString();
 
-//                int checkedId = rgSch.getCheckedRadioButton();
-//                String changeString = "";
-//                if(checkedId == -1) {
-//                    String message = "Please select a school";
-//                    Toast.makeText(Add.this, message, Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    findRadioButton(checkedId);
-//                    if (checkedId == a){
-//                        changeString = "HOD";
-//                    }
-//                }
                 if (!id1.equals("")) {
                     if (!name1.equals("")) {
                         if (no.length() != 0) {
@@ -153,34 +99,6 @@ public class Add extends AppCompatActivity {
 
     }
 
-//    private String findRadioButton(int checkedId) {
-//        String sch  = "";
-//        switch (checkedId) {
-//            case R.id.soi:
-//                sch = "SOI";
-//                break;
-//            case R.id.shl:
-//                sch = "SHL";;
-//                break;
-//            case R.id.sas:
-//                sch = "SAS";
-//                break;
-//            case R.id.soe:
-//                sch = "SOE";
-//                break;
-//            case R.id.sta:
-//                sch = "STA";
-//                break;
-//            case R.id.soh:
-//                sch = "SOH";
-//                break;
-//            case R.id.smc:
-//                sch = "SMC";
-//                break;
-//        }
-//        return sch;
-//    }
-
     private class ConnectMySql extends AsyncTask<String, Void, String> {
         String id1 = id.getText().toString();
         String name1 = name.getText().toString();
@@ -194,13 +112,10 @@ public class Add extends AppCompatActivity {
         protected String doInBackground(String... args) {
             String res = "";
             try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 con = connectionHelper.conclass();
                 //set sql string
-                String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "');";
+                String sql = "INSERT INTO owner" + " VALUES('" + id1 + "','" + name1 + "','" + no + "','" + mem1 + "','" + lp + "','" + sch1 + "','" + des1 + "')";
                 String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
                 st.executeUpdate(sql);

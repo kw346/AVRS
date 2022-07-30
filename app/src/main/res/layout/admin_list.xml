@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginBottom="10dp"
+            android:hint="No School"
             android:layout_below="@+id/license"
             android:textSize="17dp"></TextView>
 

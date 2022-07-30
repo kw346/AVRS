@@ -77,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 Connection con = connectionHelper.conclass();
                 //set sql string
