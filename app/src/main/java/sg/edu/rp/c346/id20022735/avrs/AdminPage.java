@@ -21,13 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 public class AdminPage extends AppCompatActivity {
-//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
-//    private static final String user = "root";
-//    private static final String pass = "123";
     Button btn1;
     ListView lv;
-    ArrayList<License> licenseList;
-    CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +44,6 @@ public class AdminPage extends AppCompatActivity {
         SimpleAdapter adap;
         public void GetList (View v) {
             ListView lvlic = (ListView) findViewById(R.id.lv);
-
             List<Map<String,String>> datalist = null;
             ListOwner alldata= new ListOwner();
             datalist = alldata.getList();
@@ -60,51 +54,5 @@ public class AdminPage extends AppCompatActivity {
             lvlic.setAdapter(adap);
         }
 }
-//    private class ConnectMySql extends AsyncTask<String, Void, String> {
-//        //define variables
-//        String res = "";
-//        String username = String.valueOf(textUsername.getText().toString());
-//        String password = String.valueOf(textPassword.getText().toString());
-
-
-    //main part where it process
-//        @Override
-//        protected String doInBackground(String... params) {
-//            try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
-//                //set sql string
-//                String sql = "SELECT type FROM user WHERE username='"+username+"' AND password='"+password+"'";
-//                String result = "Database Connection Successful\n";
-//                Statement st = con.createStatement();
-//                ResultSet rs = st.executeQuery(sql);
-//                ResultSetMetaData rsmd = rs.getMetaData();
-//                while (rs.next()) {
-//                    result = rs.getString(1).toString();
-//                }
-//                res = result;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                res = e.toString();
-//            }
-//            return res;
-//        }
-
-//        @Override
-//        protected void onPostExecute(String result) {
-//            //check if status is login or not (if not means invalid account or wrong password)
-//            if (result.contains("admin")) {
-//                Intent intent = new Intent(MainActivity.this, AdminPage.class);
-//                startActivity(intent);
-//            }
-//            else if (result.contains("guard")) {
-//                Intent intent = new Intent(MainActivity.this, HomePage.class);
-//                startActivity(intent);
-//            }
-//            //if account invalid
-//            else {
-//                Toast.makeText(getApplicationContext(),"Invalid account",Toast.LENGTH_SHORT).show();
-//            }
 
 

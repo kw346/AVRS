@@ -12,7 +12,7 @@ public class License implements Serializable {
     private String school;
     private String designation;
 
-    public License(String name, String number, String membership, String license, String school,String designation) {
+    public License(String name, String number, String membership, String license, String school, String designation) {
         this.name = name;
         this.number = number;
         this.membership = membership;
@@ -21,7 +21,7 @@ public class License implements Serializable {
         this.designation = designation;
     }
 
-    public License(int id, String name, String number, String membership, String license, String school,String designation) {
+    public License(int id, String name, String number, String membership, String license, String school, String designation) {
         this.id = id;
         this.name = name;
         this.number = number;
@@ -35,57 +35,62 @@ public class License implements Serializable {
         return id;
     }
 
-    public License setId(int id) {
+    public int setId(int id) {
         this.id = id;
-        return this;
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public License setName(String name) {
+    public String setName(String name) {
         this.name = name;
-        return this;
+        return name;
     }
-    public String getNumber() {return number; }
 
-    public License setNumber(String number) {
+    public String getNumber() {
+        return number;
+    }
+
+    public String setNumber(String number) {
         this.number = number;
-        return this;
+        return number;
     }
 
     public String getMembership() {
         return membership;
     }
 
-    public License setMembership(String membership) {
+    public String setMembership(String membership) {
         this.membership = membership;
-        return this;
+        return membership;
     }
 
     public String getLicense() {
         return license;
     }
 
-    public License setLicense(String license) {
+    public String setLicense(String license) {
         this.license = license;
-        return this;
+        return license;
     }
+
     public String getSchool() {
         return school;
     }
 
-    public License setSchool(String school) {
+    public String setSchool(String school) {
         this.school = school;
-        return this;
+        return school;
     }
+
     public String getDesignation() {
         return designation;
     }
 
-    public License setDesignation(String designation) {
+    public String setDesignation(String designation) {
         this.designation = designation;
-        return this;
+        return designation;
     }
 }

@@ -18,15 +18,10 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
-    //define variables
-//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
-//    private static final String user = "root";
-//    private static final String pass = "123";
+
     Button btnLogin;
     TextInputEditText textUsername;
     TextInputEditText textPassword;
-    public String status = "fail";
-    public String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //grab string from TextInputEditText
-
                 String username, password;
                 username = String.valueOf(textUsername.getText().toString());
                 password = String.valueOf(textPassword.getText().toString());
@@ -70,17 +64,18 @@ public class MainActivity extends AppCompatActivity {
             super.onPreExecute();
             Toast.makeText(MainActivity.this, "Please wait...", Toast.LENGTH_SHORT)
                     .show();
-
         }
 
         //main part where it process
         @Override
         protected String doInBackground(String... params) {
             try {
+                //connect database using connection helper
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 Connection con = connectionHelper.conclass();
-                //set sql string
-                String sql = "SELECT type FROM user WHERE username='" + username + "' AND password='" + password + "'";
+                //set sql string, password does not work
+                // String sql = "SELECT type FROM user WHERE username='" + username + "' AND password= PASSWORD('" + password + "')";
+                String sql = "SELECT type FROM user WHERE username='" + username + "' AND password= '" + password + "';";
                 String result = "Database Connection Successful\n";
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery(sql);

@@ -51,7 +51,6 @@ public class CustomAdapter extends ArrayAdapter {
         tvschool.setText(currentVersion.getSchool());
         tvdesignation.setText(currentVersion.getDesignation());
 
-
         return rowView;
     }
 }

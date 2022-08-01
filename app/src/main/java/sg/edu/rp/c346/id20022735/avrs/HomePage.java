@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -37,7 +39,7 @@ public class HomePage extends AppCompatActivity {
     Connection con;
     //declare imageview button textview
     private ImageView imageView;
-    private Button scan, check, read;
+    private Button scan, check, read, call;
     private TextView textView;
     private EditText editText;
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -51,6 +53,7 @@ public class HomePage extends AppCompatActivity {
         scan = findViewById(R.id.scan);
         check = findViewById(R.id.check);
         read = findViewById(R.id.read);
+        call = findViewById(R.id.call);
         imageView = findViewById(R.id.imageView);
         textView = findViewById(R.id.textView);
         editText = findViewById(R.id.editText);
@@ -168,11 +171,24 @@ public class HomePage extends AppCompatActivity {
         protected void onPostExecute(String result) {
             //check if blank (meaning no owner found)
             if (result.contains("BLANK")) {
-                Toast.makeText(getApplicationContext(), "Owner not Found", Toast.LENGTH_SHORT).show();
+                textView.setText("Owner is not found!");
+                textView.setTextColor(Color.parseColor("#A32F2F"));
+                call.setVisibility(View.VISIBLE);
+                call.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 92345678"));
+                        startActivity(intent);
+                    }
+                });
             }
             //if owner found
             else {
                 textView.setText(result);
+                textView.setTextColor(Color.parseColor("#3EA35B"));
+                call.setVisibility(View.GONE);
+
+
             }
         }
     }

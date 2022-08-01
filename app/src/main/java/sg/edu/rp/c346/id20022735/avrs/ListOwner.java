@@ -15,11 +15,12 @@ public class ListOwner {
     String connectionres="";
     Boolean isSuccess=false;
 
+    //show the data from database
     public List<Map<String,String>> getList(){
         List<Map<String,String>> data = null;
         data = new ArrayList<Map<String,String>>();
-
         try{
+            //connect database using connection helper
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.conclass();
             if(connect !=null){

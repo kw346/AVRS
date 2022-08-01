@@ -25,33 +25,25 @@ import java.sql.Statement;
 import java.util.List;
 
 public class Update extends AppCompatActivity {
-//    private static final String url = "jdbc:mysql://192.168.1.91:3306/fyp";
-//    private static final String user = "root";
-//    private static final String pass = "123";
-
     TextView tvStaffId;
     EditText etName, etContact, etMember, etLicense1, etLicense2, etSchool, etDesignation;
-    RadioGroup rgSchool;
+
     Button btnUpdate, btnDelete, btnCancel;
-//    EditText id, name, contact, member, license, des, sch;
     ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
+        //set id from xml
         lv = findViewById(R.id.listView);
         tvStaffId = findViewById(R.id.staff_id);
         etName = findViewById(R.id.name);
         etContact = findViewById(R.id.contact);
         etMember = findViewById(R.id.membership);
         etLicense1 = findViewById(R.id.license1);
-        //etLicense2 = findViewById(R.id.license2);
         etSchool = findViewById(R.id.school);
-        //rgSchool = findViewById(R.id.school);
         etDesignation = findViewById(R.id.designation);
-
         btnUpdate = findViewById(R.id.update);
         btnDelete = findViewById(R.id.delete);
         btnCancel = findViewById(R.id.cancel);
@@ -142,31 +134,6 @@ public class Update extends AppCompatActivity {
 
     }
 
-    //if (rgSchool.getCheckedRadioButtonId() == R.id.soi) {
-
-
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //grab string from TextInputEditText
-//                String username, password;
-//                username = String.valueOf(textUsername.getText().toString());
-//                password = String.valueOf(textPassword.getText().toString());
-//                //Check if all fields are entered
-//                if (!username.equals("") && !password.equals("")) {
-//                    //execute sql code (see below at ConnectMySql private class)
-//                    MainActivity.ConnectMySql connectMySql = new MainActivity.ConnectMySql();
-//                    connectMySql.execute("");
-//                }
-//                //run if one of the fields are empty
-//                else {
-//                    Toast.makeText(getApplicationContext(),"All fields required",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-    //}
-
     public class ConnectMySql extends AsyncTask<String, Void, String> {
         String id = tvStaffId.getText().toString();
         String name = etName.getText().toString();
@@ -181,9 +148,7 @@ public class Update extends AppCompatActivity {
         protected String doInBackground(String... args) {
             String res = "";
             try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection(url, user, pass);
-//                System.out.println("Database connection success");
+
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 Connection con = connectionHelper.conclass();
                 //set sql string
